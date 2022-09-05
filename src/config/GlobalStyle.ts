@@ -50,15 +50,15 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeTypes }>`
     margin: 0;
 
     ::selection {
-      color: ${({ theme }) => theme.colors.primary};
-      background: ${({ theme }) => theme.colors.orange};
+      color: ${({ theme }) => theme.colors.dark};
+      background: ${({ theme }) => theme.colors.light};
     }
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.primary};
-    font-family: 'Rubik', sans-serif;
-    color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.dark};
+    font-family: 'Roboto', sans-serif;
+    color: ${({ theme }) => theme.colors.light};
   }
 `;
 

@@ -5,33 +5,21 @@ const theme = {
   },
 };
 
-const lightTheme = {
-  ...theme,
-  colors: {
-    primary: '#F5EFED',
-    secondary: '#252323',
-    orange: '#FF8839',
-    light: '#F5EFED',
-    dark: '#252323',
-  },
-};
-
 const darkTheme = {
   ...theme,
   colors: {
-    primary: '#252323',
-    secondary: '#F5EFED',
-    orange: '#FF8839',
-    light: '#F5EFED',
-    dark: '#252323',
+    light: '#FFFFFF',
+    gray10: '#AAAAAA',
+    gray20: '#303030',
+    gray30: '#212121',
+    gray40: '#121212',
+    dark: '#000000',
   },
 };
 
-export type ThemeTypes = typeof lightTheme;
-export type ThemeModeTypes = 'dark' | 'light';
+export type ThemeTypes = typeof darkTheme;
 export type ThemeContextTypes = {
-  theme: ThemeModeTypes;
-  changeTheme: (theme: ThemeModeTypes) => void;
+  theme: ThemeTypes;
 };
 
-export { lightTheme, darkTheme };
+export { darkTheme };
