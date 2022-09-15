@@ -1,71 +1,130 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, HomeIcon } from './LateralMenu.styles';
+import { Navbar } from './LateralMenu.styles';
+import NavSection from '../NavSection';
+import HomeIcon from '../../assets/home.svg';
+import ExploreIcon from '../../assets/explore.svg';
+import SubscriptionsIcon from '../../assets/subscriptions.svg';
+import LibraryIcon from '../../assets/library.svg';
+import HistoryIcon from '../../assets/history.svg';
+import YourVideosIcon from '../../assets/yourvideos.svg';
+import WatchLaterIcon from '../../assets/watchlater.svg';
+import LikedVideosIcon from '../../assets/likedvideos.svg';
+import User from '../../assets/user.svg';
 
-const LateralMenu = () => {
-  const items = {
-    home: {
-      to: '/home',
-      text: 'Home',
-    },
-    explore: {
-      to: '/explore',
-      text: 'Explore',
-    },
-    subscriptions: {
-      to: '/subscriptionst',
-      text: 'Subscriptions',
-    },
-    library: {
-      to: '/library',
-      text: 'Library',
-    },
-    history: {
-      to: '/history',
-      text: 'History',
-    },
-    yourvideos: {
-      to: '/yourvideos',
-      text: 'Your Videos',
-    },
-    watchlater: {
-      to: '/watchlater',
-      text: 'Watch Later',
-    },
-  };
+const sections = [
+  {
+    id: 'home',
+  },
+  {
+    id: 'explore',
+  },
+  {
+    id: 'subscriptions',
+    label: 'SUBSCRIPTIONS',
+  },
+];
 
-  return (
-    <Navbar>
-      <ul>
-        <li>
-          <Link to={items.home.to}>
-            <HomeIcon />
-            {items.home.text}
-          </Link>
-        </li>
-        <li>
-          <Link to={items.explore.to}>{items.explore.text}</Link>
-        </li>
-        <li>
-          <Link to={items.subscriptions.to}>{items.subscriptions.text}</Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to={items.library.to}>{items.library.text}</Link>
-        </li>
-        <li>
-          <Link to={items.history.to}>{items.history.text}</Link>
-        </li>
-        <li>
-          <Link to={items.yourvideos.to}>{items.yourvideos.text}</Link>
-        </li>
-        <li>
-          <Link to={items.watchlater.to}>{items.watchlater.text}</Link>
-        </li>
-      </ul>
-    </Navbar>
-  );
-};
+const links = [
+  {
+    id: 'home',
+    label: 'Home',
+    url: '/',
+    section: 'home',
+    icon: HomeIcon,
+  },
+  {
+    id: 'explore',
+    label: 'Explore',
+    url: '/explore',
+    section: 'home',
+    icon: ExploreIcon,
+  },
+  {
+    id: 'subscriptions',
+    label: 'Subscriptions',
+    url: '/subscriptions',
+    section: 'home',
+    icon: SubscriptionsIcon,
+  },
+  {
+    id: 'library',
+    label: 'Library',
+    url: '/library',
+    section: 'explore',
+    icon: LibraryIcon,
+  },
+  {
+    id: 'history',
+    label: 'History',
+    url: '/history',
+    section: 'explore',
+    icon: HistoryIcon,
+  },
+  {
+    id: 'yourvideos',
+    label: 'Your Videos',
+    url: '/yourvideos',
+    section: 'explore',
+    icon: YourVideosIcon,
+  },
+  {
+    id: 'watchlater',
+    label: 'Watch Later',
+    url: '/watchlater',
+    section: 'explore',
+    icon: WatchLaterIcon,
+  },
+  {
+    id: 'likedvideos',
+    label: 'Liked Videos',
+    url: '/likedvideos',
+    section: 'explore',
+    icon: LikedVideosIcon,
+  },
+  {
+    id: 'usuario1',
+    label: 'James Gouse',
+    url: '/jamesgouse',
+    section: 'subscriptions',
+    icon: User,
+  },
+  {
+    id: 'usuario2',
+    label: 'Alan Cooper',
+    url: '/alancooper',
+    section: 'subscriptions',
+    icon: User,
+  },
+  {
+    id: 'usuario3',
+    label: 'Marcus Levin',
+    url: '/marcuslevin',
+    section: 'subscriptions',
+    icon: User,
+  },
+  {
+    id: 'usuario4',
+    label: 'Alexis Sears',
+    url: '/alexissears',
+    section: 'subscriptions',
+    icon: User,
+  },
+  {
+    id: 'usuario5',
+    label: 'Jessica Lambert',
+    url: '/jessicalambert',
+    section: 'subscriptions',
+    icon: User,
+  },
+];
+
+const LateralMenu = () => (
+  <Navbar>
+    {sections.map((section) => {
+      const filteredLinks = links.filter((link) => link.section === section.id);
+      return <NavSection section={section} links={filteredLinks} />;
+    })}
+  </Navbar>
+);
 
 export default LateralMenu;
