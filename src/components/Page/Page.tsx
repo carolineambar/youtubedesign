@@ -6,7 +6,7 @@ import GlobalStyle from '../../config/GlobalStyle';
 import { darkTheme } from '../../config/theme';
 import Header from '../Header';
 import Routes from '../../router/routes';
-import LateralMenu from '../LateralMenu';
+import Toggle from '../Toggle';
 
 const Page: React.FC = () => (
   <ThemeProvider theme={darkTheme}>
@@ -17,7 +17,7 @@ const Page: React.FC = () => (
         <main>
           <Routes />
         </main>
-        <LateralMenu />
+        <Toggle />
       </Container>
     </BrowserRouter>
   </ThemeProvider>
